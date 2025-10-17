@@ -23,7 +23,7 @@ origins = [
 # Biểu thức chính quy (regex) để khớp với TẤT CẢ các URL của Vercel
 # Bao gồm cả URL preview và URL production
 # Nó sẽ khớp với https://ai-goal-frontend.vercel.app VÀ https://ai-goal-frontend-....vercel.app
-vercel_regex = r"https?://ai-goal-frontend.*\.vercel\.app"
+vercel_regex = "https://ai-goal-frontend-git-main-kources-projects.vercel.app"
 
 app.add_middleware(
     CORSMiddleware,
