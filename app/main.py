@@ -5,7 +5,6 @@ from .database import engine
 from .routers import users, goals
 
 # Dòng này sẽ tạo các bảng trong database nếu chúng chưa tồn tại
-# Sau khi dùng Alembic hoặc các công cụ migration khác thì có thể bỏ đi
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
@@ -18,15 +17,21 @@ app = FastAPI(
 # Danh sách các "địa chỉ" được phép gọi đến API
 origins = [
     "http://localhost:5173",  # Địa chỉ của Frontend khi chạy local
-    "https://ai-goal-frontend-9ksykhrum-kources-projects.vercel.app" # Quan trọng: Thay bằng URL Vercel của bạn
+    # Chúng ta sẽ không dùng danh sách tĩnh nữa, mà dùng regex ở dưới
 ]
+
+# Biểu thức chính quy (regex) để khớp với TẤT CẢ các URL của Vercel
+# Bao gồm cả URL preview và URL production
+# Nó sẽ khớp với https://ai-goal-frontend.vercel.app VÀ https://ai-goal-frontend-....vercel.app
+vercel_regex = r"https?://ai-goal-frontend.*\.vercel\.app"
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
+    allow_origin_regex=vercel_regex, # Thêm regex vào đây để cho phép tất cả các URL của Vercel
     allow_credentials=True,
-    allow_methods=["*"], # Cho phép tất cả các phương thức (GET, POST, etc.)
-    allow_headers=["*"], # Cho phép tất cả các header
+    allow_methods=["*"], 
+    allow_headers=["*"],
 )
 
 # Gắn các router vào ứng dụng chính
