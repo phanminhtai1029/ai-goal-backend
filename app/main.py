@@ -18,7 +18,7 @@ app = FastAPI(
 # Danh sách các "địa chỉ" được phép gọi đến API
 origins = [
     "http://localhost:5173",  # Địa chỉ của Frontend khi chạy local
-    "https://ai-goal-frontend-3kxquymt-kources-projects.vercel.app" # Quan trọng: Thay bằng URL Vercel của bạn
+    "https://ai-goal-frontend-9ksykhrum-kources-projects.vercel.app" # Quan trọng: Thay bằng URL Vercel của bạn
 ]
 
 app.add_middleware(
