@@ -36,5 +36,5 @@ app.include_router(goals.router, prefix="/goals", tags=["Goals"])
 
 @app.get("/")
 def read_root():
-    return {"message": "Chào mừng đến với Trợ lý Mục tiêu AI API!"}
+    return {"message": "Welcome to AI Goal Assistant API - v2!"}
 
