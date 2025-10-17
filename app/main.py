@@ -17,7 +17,7 @@ app = FastAPI(
 # THAY ĐỔI QUAN TRỌNG LÀ Ở ĐÂY
 origins = [
     "http://localhost:5173",  # Cho phép local frontend
-    "https://ai-goal-frontend-3kkxguymt-kources-projects.vercel.app", # THÊM DÒNG NÀY VÀO
+    "https://ai-goal-frontend-9ksykhrum-kources-projects.vercel.app", # THÊM DÒNG NÀY VÀO
     # Hãy thay thế bằng URL Vercel thực tế của bạn
 ]
 
